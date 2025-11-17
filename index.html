@@ -5,50 +5,69 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Audifort — Ear Support Supplement</title>
   <meta name="description" content="Audifort — ear support supplement designed to promote ear health and comfort. Limited-time offer." />
+  <meta name="author" content="Audifort" />
 
   <style>
-    :root{--accent:#2b6cb0;--bg:#ffffff;--muted:#6b7280;--max-width:1100px}
+    :root{
+      --accent:#2b6cb0;
+      --bg:#ffffff;
+      --muted:#6b7280;
+      --max-width:1100px;
+      --radius:12px;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.4;color:#111;background:var(--bg);-webkit-font-smoothing:antialiased}
+
     .wrap{max-width:var(--max-width);margin:36px auto;padding:18px}
 
-    /* Card */
-    .card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px}
-    .media{flex:0 0 100%;display:flex;align-items:center;justify-content:center}
-    .product{max-width:420px;width:100%;height:auto;display:block;border-radius:12px}
+    /* Layout: 3 vertical blocks (stack on mobile, 3 columns on wide) */
+    .card{width:100%}
+    .three-col{display:grid;grid-template-columns:1fr;gap:20px;align-items:start}
 
-    .content{width:100%}
-    h1{font-size:1.5rem;margin:8px 0}
-    p.lead{color:var(--muted);margin:6px 0 16px}
+    .col{background:transparent}
 
-    /* CTA */
-    .cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(43,108,176,.18);}
-    .cta-block{display:block;width:100%;text-align:center}
+    /* media column */
+    .media{display:flex;align-items:center;justify-content:center}
+    .product{max-width:420px;width:100%;height:auto;display:block;border-radius:var(--radius)}
 
-    /* Features & badges */
-    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:18px}
-    .feat{padding:10px;border-radius:10px;background:#f8fafc;border:1px solid #eef2f7}
+    /* cta column */
+    .cta-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:8px}
+    .title{font-size:1.5rem;margin:8px 0;text-align:center}
+    .lead{color:var(--muted);margin:6px 0 16px;text-align:center}
+
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:14px 20px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(43,108,176,.18);border:0;cursor:pointer}
+    .cta:focus{outline:3px solid rgba(43,108,176,.18);outline-offset:3px}
+
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:12px;width:100%}
+    .feat{padding:10px;border-radius:10px;background:#f8fafc;border:1px solid #eef2f7;text-align:center}
+    .feat strong{display:block}
     small{color:var(--muted)}
 
-    .badges{margin-top:20px;max-width:760px;width:100%}
-    .badges img{width:100%;height:auto;display:block;border-radius:8px}
+    /* badges column */
+    .badges{display:flex;align-items:center;justify-content:center}
+    .badges img{max-width:100%;height:auto;display:block;border-radius:8px}
 
     footer note{display:block;margin-top:14px;color:var(--muted);font-size:.92rem}
 
-    /* Responsive: on wider screens show side-by-side */
+    /* Desktop: show three vertical blocks (columns) */
     @media(min-width:900px){
-      .card{flex-direction:row;align-items:flex-start;text-align:left}
-      .media{flex:0 0 420px}
-      .content{flex:1;padding-left:24px}
-      h1{font-size:1.75rem}
+      .three-col{grid-template-columns:420px 1fr 360px}
+      .title,.lead{text-align:left}
+      .cta-wrap{align-items:flex-start;padding-left:12px}
     }
 
     /* Mobile-friendly tweaks */
     @media(max-width:420px){
       .wrap{margin:16px 12px;padding:12px}
-      .cta{padding:14px;border-radius:12px}
+      .cta{padding:16px;border-radius:12px;width:100%;text-align:center}
       .product{max-width:320px}
     }
+
+    /* Utility: visually hidden for a11y */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 
 </head>
@@ -56,35 +75,45 @@
   <main class="wrap" role="main">
     <section class="card" aria-labelledby="product-title">
 
-      <div class="media" aria-hidden="false">
-        <!-- Responsive image using srcset and sizes -->
-        <picture>
-          <!-- If you later provide WebP versions, replace srcset entries with webp files -->
-          <source srcset="https://i.imgur.com/2itDmPc.png 480w, https://i.imgur.com/2itDmPc.png 768w, https://i.imgur.com/2itDmPc.png 1024w" sizes="(max-width:900px) 80vw, 420px">
-          <img class="product" src="https://i.imgur.com/2itDmPc.png" alt="Audifort bottle" loading="lazy" decoding="async" width="420" height="420">
-        </picture>
-      </div>
+      <div class="three-col">
 
-      <div class="content">
-        <h1 id="product-title">Audifort — Advanced Ear Support Formula</h1>
-        <p class="lead">Supports ear comfort and healthy auditory function. Scientifically-formulated blend to support ear health and overall well-being.</p>
-
-        <div style="margin-top:6px">
-          <a id="buyBtn" class="cta cta-block" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener sponsored" aria-label="Buy Audifort from official website">Buy From Official Website</a>
+        <!-- 1) Product image column -->
+        <div class="col media" aria-hidden="false">
+          <picture>
+            <source srcset="https://i.imgur.com/2itDmPc.png 480w, https://i.imgur.com/2itDmPc.png 768w, https://i.imgur.com/2itDmPc.png 1024w" sizes="(max-width:900px) 80vw, 420px">
+            <img class="product" src="https://i.imgur.com/2itDmPc.png" alt="Audifort bottle" loading="lazy" decoding="async" width="420" height="420">
+          </picture>
         </div>
 
-        <div class="features" aria-hidden="false">
-          <div class="feat"><strong>GMP Certified</strong><br><small>Manufacturing quality</small></div>
-          <div class="feat"><strong>Made in USA</strong><br><small>Registered facility</small></div>
-          <div class="feat"><strong>Natural Ingredients</strong><br><small>No unnecessary fillers</small></div>
-          <div class="feat"><strong>GMO Free</strong><br><small>Purity guaranteed</small></div>
+        <!-- 2) CTA / product text column -->
+        <div class="col cta-wrap">
+          <div>
+            <h1 id="product-title" class="title">Audifort — Advanced Ear Support Formula</h1>
+            <p class="lead">Supports ear comfort and healthy auditory function. Scientifically-formulated blend to support ear health and overall well-being.</p>
+          </div>
+
+          <!-- Primary CTA: keep anchor but improve attributes for accessibility and security -->
+          <div style="width:100%">
+            <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener noreferrer sponsored" target="_blank" aria-label="Buy Audifort from official website">Buy From Official Website</a>
+            <noscript><p style="margin-top:8px;color:var(--muted);font-size:.92rem">JavaScript is disabled — click the button above to open the checkout.</p></noscript>
+          </div>
+
+          <!-- Features (kept text unchanged) -->
+          <div class="features" aria-hidden="false">
+            <div class="feat"><strong>GMP Certified</strong><br><small>Manufacturing quality</small></div>
+            <div class="feat"><strong>Made in USA</strong><br><small>Registered facility</small></div>
+            <div class="feat"><strong>Natural Ingredients</strong><br><small>No unnecessary fillers</small></div>
+            <div class="feat"><strong>GMO Free</strong><br><small>Purity guaranteed</small></div>
+          </div>
+
+          <p style="margin-top:16px;font-size:.92rem;color:var(--muted)"><small>Secure checkout on the official website. Always read labels and consult your healthcare provider before use.</small></p>
         </div>
 
-        <div class="badges" style="margin-top:18px">
-          <img src="https://i.imgur.com/m6ovMbm.png" alt="quality badges and certifications" loading="lazy" decoding="async" width="760" height="120">
+        <!-- 3) Badges / certifications column -->
+        <div class="col badges" aria-hidden="false">
+          <img src="https://i.imgur.com/qr4nMPv.png" alt="quality badges and certifications" loading="lazy" decoding="async" width="760" height="120">
         </div>
 
-        <p style="margin-top:16px;font-size:.92rem;color:var(--muted)"><small>Secure checkout on the official website. Always read labels and consult your healthcare provider before use.</small></p>
       </div>
 
     </section>
@@ -94,14 +123,23 @@
     (function(){
       var btn=document.getElementById('buyBtn');
       if(!btn) return;
+
+      // Enhance click so we open a new window safely and add a tracking ping
       btn.addEventListener('click',function(e){
-        var href=btn.getAttribute('href');
-        if(!href) return;
-        e.preventDefault();
-        try{window.open(href,'_blank','noopener');}catch(err){location.href=href}
-        // simple tracking ping (no external analytics required)
-        var img=new Image(); img.src=(href.indexOf('?')>-1?href+'&':'')+'utm_source=presell&utm_medium=button';
+        // default anchor behavior will open target=_blank; still add tracking
+        try{
+          var href = btn.href || btn.getAttribute('href');
+          // fire a tracking ping (be conservative with params)
+          var pingUrl = (href.indexOf('?')>-1? href+'&' : href+'?') + 'utm_source=presell&utm_medium=button';
+          // use navigator.sendBeacon when available to avoid blocking
+          if(window.navigator && navigator.sendBeacon){
+            navigator.sendBeacon(pingUrl);
+          } else {
+            var img=new Image(); img.src=pingUrl;
+          }
+        }catch(err){/* noop */}
       },{passive:true});
+
     })();
   </script>
 
