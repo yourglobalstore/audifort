@@ -1,127 +1,65 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="https://i.imgur.com/vHUeSn0.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Audifort — Ear Support Supplement</title>
   <meta name="description" content="Audifort — ear support supplement designed to promote ear health and comfort. Limited-time offer." />
-  <meta name="author" content="Audifort" />
 
   <style>
-    :root{
-      --accent:#2b6cb0;
-      --bg:#ffffff;
-      --muted:#6b7280;
-      --max-width:1100px;
-      --radius:12px;
-    }
-
-    /* Reset & base */
-    *{box-sizing:border-box}
+    :root{--accent:#2b6cb0;--bg:#ffffff;--muted:#6b7280;--gap:18px;--max-width:900px}
     html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.4;color:#111;background:var(--bg);-webkit-font-smoothing:antialiased}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.45;color:#111;background:var(--bg);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:var(--max-width);margin:28px auto;padding:18px}
 
-    .wrap{max-width:var(--max-width);margin:36px auto;padding:18px}
+    /* Vertical stacked layout: three blocks one after another */
+    .stack{display:flex;flex-direction:column;gap:var(--gap);align-items:center}
+    .block{width:100%;display:flex;align-items:center;justify-content:center}
 
-    /* Layout: 3 vertical blocks (stack on mobile, 3 columns on wide) */
-    .card{width:100%}
-    .three-col{display:grid;grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:20px;align-items:start}
+    /* Product image block */
+    .product{max-width:420px;width:90%;height:auto;border-radius:12px;display:block}
 
-    .col{background:transparent}
+    /* CTA block */
+    .cta-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6px}
+    h1{font-size:1.6rem;margin:6px 0;text-align:center}
+    p.lead{text-align:center;color:var(--muted);margin:6px 0 14px;max-width:720px}
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:14px 22px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 10px 22px rgba(43,108,176,.15)}
 
-    /* media column */
-    .media{display:flex;align-items:center;justify-content:center}
-    .product{max-width:420px;width:100%;height:auto;display:block;border-radius:var(--radius)}
+    /* Badges block */
+    .badges img{max-width:760px;width:95%;height:auto;border-radius:10px;display:block}
 
-    /* cta column */
-    .cta-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:8px}
-    .title{font-size:1.5rem;margin:8px 0;text-align:center}
-    .lead{color:var(--muted);margin:6px 0 16px;text-align:center}
-
-    .cta{display:inline-flex;align-items:center;gap:12px;background:var(--accent);color:#fff;padding:14px 20px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(43,108,176,.18);border:0;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
-    .cta:focus{outline:3px solid rgba(43,108,176,.18);outline-offset:3px}
-    .cta-icon{width:20px;height:20px;display:block;flex:0 0 20px;border-radius:4px}
-    .cta:hover,.cta:focus-visible{transform:translateY(-4px);box-shadow:0 14px 30px rgba(43,108,176,.22);filter:brightness(1.03)}
-    .cta:focus{outline:3px solid rgba(43,108,176,.18);outline-offset:3px}
-
-    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:12px;width:100%}
-    .feat{padding:10px;border-radius:10px;background:#f8fafc;border:1px solid #eef2f7;text-align:center}
-    .feat strong{display:block}
-    small{color:var(--muted)}
-
-    /* badges column */
-    .badges{display:flex;align-items:center;justify-content:center}
-    .badges img{max-width:100%;height:auto;display:block;border-radius:8px}
-
-    footer note{display:block;margin-top:14px;color:var(--muted);font-size:.92rem}
-
-    /* Desktop: show three vertical blocks (columns) */
-    /* Desktop: keep blocks horizontal (stacked rows), not columns */
-    @media(min-width:900px){
-      .three-col{grid-template-columns:1fr}
-      .title,.lead{text-align:center}
-      .cta-wrap{align-items:center;padding-left:0}
-    }
-      .title,.lead{text-align:left}
-      .cta-wrap{align-items:flex-start;padding-left:12px}
-    }
-
-    /* Mobile-friendly tweaks */
+    /* Small screens tweaks */
     @media(max-width:420px){
-      .wrap{margin:16px 12px;padding:12px}
-      .cta{padding:16px;border-radius:12px;width:100%;text-align:center}
+      .wrap{padding:12px;margin:14px}
+      h1{font-size:1.25rem}
       .product{max-width:320px}
+      .cta{width:100%;padding:16px;border-radius:12px}
     }
 
-    /* Utility: visually hidden for a11y */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .cta:focus{outline:3px solid rgba(43,108,176,.25);outline-offset:3px}
   </style>
-
 </head>
 <body>
   <main class="wrap" role="main">
-    <section class="card" aria-labelledby="product-title">
+    <section class="stack" aria-labelledby="product-title">
 
-      <div class="three-col">
+      <!-- 1st block: product image -->
+      <div class="block" aria-hidden="false">
+        <img class="product" src="https://i.imgur.com/2itDmPc.png" alt="Audifort bottle" loading="lazy" decoding="async" width="420" height="420">
+      </div>
 
-        <!-- 1) Product image column -->
-        <div class="col media" aria-hidden="false">
-          <picture>
-            <source srcset="https://i.imgur.com/2itDmPc.png 480w, https://i.imgur.com/2itDmPc.png 768w, https://i.imgur.com/2itDmPc.png 1024w" sizes="(max-width:900px) 80vw, 420px">
-            <img class="product" src="https://i.imgur.com/2itDmPc.png" alt="Audifort bottle" loading="lazy" decoding="async" width="420" height="420">
-          </picture>
+      <!-- 2nd block: CTA and text (do not change text content) -->
+      <div class="block cta-wrap">
+        <div>
+          <h1 id="product-title">Audifort — Advanced Ear Support Formula</h1>
+          <p class="lead">Supports ear comfort and healthy auditory function. Scientifically-formulated blend to support ear health and overall well-being.</p>
         </div>
+        <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener sponsored" aria-label="Buy Audifort from official website">Buy From Official Website</a>
+      </div>
 
-        <!-- 2) CTA / product text column -->
-        <div class="col cta-wrap">
-          <div>
-            <h1 id="product-title" class="title">Audifort — Advanced Ear Support Formula</h1>
-            <p class="lead">Supports ear comfort and healthy auditory function. Scientifically-formulated blend to support ear health and overall well-being.</p>
-          </div>
-
-          <!-- Primary CTA: keep anchor but improve attributes for accessibility and security -->
-          <div style="width:100%">
-            <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener noreferrer sponsored" target="_blank" aria-label="Buy Audifort from official website"><img src="https://i.imgur.com/vHUeSn0.png" alt="" aria-hidden="true" class="cta-icon">Buy From Official Website</a>
-            <noscript><p style="margin-top:8px;color:var(--muted);font-size:.92rem">JavaScript is disabled — click the button above to open the checkout.</p></noscript>
-          </div>
-
-          <!-- Features (kept text unchanged) -->
-          <div class="features" aria-hidden="false">
-            <div class="feat"><strong>GMP Certified</strong><br><small>Manufacturing quality</small></div>
-            <div class="feat"><strong>Made in USA</strong><br><small>Registered facility</small></div>
-            <div class="feat"><strong>Natural Ingredients</strong><br><small>No unnecessary fillers</small></div>
-            <div class="feat"><strong>GMO Free</strong><br><small>Purity guaranteed</small></div>
-          </div>
-
-          <p style="margin-top:16px;font-size:.92rem;color:var(--muted)"><small>Secure checkout on the official website. Always read labels and consult your healthcare provider before use.</small></p>
-        </div>
-
-        <!-- 3) Badges / certifications column -->
-        <div class="col badges" aria-hidden="false">
-          <img src="https://i.imgur.com/m6ovMbm.png" alt="quality badges and certifications" loading="lazy" decoding="async" width="760" height="120">
-        </div>
-
+      <!-- 3rd block: certifications image -->
+      <div class="block" aria-hidden="false">
+        <img class="badges" src="https://i.imgur.com/OuIiUI0.png" alt="quality badges and certifications" loading="lazy" decoding="async" width="760" height="140">
       </div>
 
     </section>
@@ -131,25 +69,15 @@
     (function(){
       var btn=document.getElementById('buyBtn');
       if(!btn) return;
-
-      // Enhance click so we open a new window safely and add a tracking ping
       btn.addEventListener('click',function(e){
-        // default anchor behavior will open target=_blank; still add tracking
-        try{
-          var href = btn.href || btn.getAttribute('href');
-          // fire a tracking ping (be conservative with params)
-          var pingUrl = (href.indexOf('?')>-1? href+'&' : href+'?') + 'utm_source=presell&utm_medium=button';
-          // use navigator.sendBeacon when available to avoid blocking
-          if(window.navigator && navigator.sendBeacon){
-            navigator.sendBeacon(pingUrl);
-          } else {
-            var img=new Image(); img.src=pingUrl;
-          }
-        }catch(err){/* noop */}
+        var href=btn.getAttribute('href');
+        if(!href) return;
+        e.preventDefault();
+        try{window.open(href,'_blank','noopener');}catch(err){location.href=href}
+        // simple tracking ping
+        var img=new Image(); img.src=(href.indexOf('?')>-1?href+'&':'')+'utm_source=presell&utm_medium=button';
       },{passive:true});
-
     })();
   </script>
-
 </body>
 </html>
