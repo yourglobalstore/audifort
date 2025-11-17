@@ -7,77 +7,52 @@
   <meta name="description" content="Audifort — ear support supplement designed to promote ear health and comfort. Limited-time offer." />
 
   <style>
-    :root{--accent:#2b6cb0;--bg:#ffffff;--muted:#6b7280;--gap:18px;--max-width:900px}
-    html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.45;color:#111;background:var(--bg);-webkit-font-smoothing:antialiased}
-    .wrap{max-width:var(--max-width);margin:28px auto;padding:18px}
-
-    /* Vertical stacked layout: three blocks one after another */
-    .stack{display:flex;flex-direction:column;gap:var(--gap);align-items:center}
-    .block{width:100%;display:flex;align-items:center;justify-content:center}
-
-    /* Product image block */
-    .product{max-width:420px;width:90%;height:auto;border-radius:12px;display:block}
-
-    /* CTA block */
-    .cta-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6px}
-    h1{font-size:1.6rem;margin:6px 0;text-align:center}
-    p.lead{text-align:center;color:var(--muted);margin:6px 0 14px;max-width:720px}
-    .cta{display:inline-block;background:var(--accent);color:#fff;padding:14px 22px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 10px 22px rgba(43,108,176,.15)}
-
-    /* Badges block */
-    .badges img{max-width:760px;width:95%;height:auto;border-radius:10px;display:block}
-
-    /* Small screens tweaks */
-    @media(max-width:420px){
-      .wrap{padding:12px;margin:14px}
-      h1{font-size:1.25rem}
-      .product{max-width:320px}
-      .cta{width:100%;padding:16px;border-radius:12px}
-    }
-
-    .cta:focus{outline:3px solid rgba(43,108,176,.25);outline-offset:3px}
+    :root{--accent:#2b6cb0;--bg:#ffffff;--muted:#6b7280}
+    body{margin:0;font-family:system-ui;line-height:1.4;color:#111;background:#fff;text-align:center}
+    .wrap{max-width:960px;margin:40px auto;padding:20px}
+    .card{display:flex;flex-direction:column;align-items:center;gap:26px}
+    @media(min-width:900px){.card{flex-direction:row;align-items:center;text-align:center;justify-content:center}}
+    .product{max-width:380px;width:100%;border-radius:12px}
+    h1{font-size:1.7rem;margin:10px 0;text-align:center}
+    p.lead{color:var(--muted);font-size:1rem;max-width:600px;margin:0 auto 20px;text-align:center}
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:14px 20px;border-radius:10px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(43,108,176,.18);margin-bottom:18px}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:20px;text-align:center}
+    .feat{background:#f8fafc;border:1px solid #eef2f7;border-radius:10px;padding:14px}
+    .badges img{max-width:680px;width:100%;border-radius:12px;margin-top:20px}
   </style>
 </head>
 <body>
   <main class="wrap" role="main">
-    <section class="stack" aria-labelledby="product-title">
+    <section class="card">
 
-      <!-- 1st block: product image -->
-      <div class="block" aria-hidden="false">
-        <img class="product" src="https://i.imgur.com/2itDmPc.png" alt="Audifort bottle" loading="lazy" decoding="async" width="420" height="420">
-      </div>
+      <!-- product image -->
+      <div><img class="product" src="https://i.imgur.com/2itDmPc.png" alt="Audifort bottle" loading="lazy"></div>
 
-      <!-- 2nd block: CTA and text (do not change text content) -->
-      <div class="block cta-wrap">
-        <div>
-          <h1 id="product-title">Audifort — Advanced Ear Support Formula</h1>
-          <p class="lead">Supports ear comfort and healthy auditory function. Scientifically-formulated blend to support ear health and overall well-being.</p>
+      <!-- content -->
+      <div class="content">
+        <h1>Audifort — Advanced Ear Support Formula</h1>
+        <p class="lead">Supports ear comfort and healthy auditory function. Scientifically-formulated blend to support ear health and overall well-being.</p>
+
+        <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener" aria-label="Buy Audifort">🛒 Buy From Official Website</a>
+
+        <!-- restored features -->
+        <div class="features">
+          <div class="feat"><strong>GMP Certified</strong><br><small>Manufacturing quality</small></div>
+          <div class="feat"><strong>Made in USA</strong><br><small>Registered facility</small></div>
+          <div class="feat"><strong>Natural Ingredients</strong><br><small>No unnecessary fillers</small></div>
+          <div class="feat"><strong>GMO Free</strong><br><small>Purity guaranteed</small></div>
         </div>
-        <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener sponsored" aria-label="Buy Audifort from official website">Buy From Official Website</a>
-      </div>
 
-      <!-- 3rd block: certifications image -->
-      <div class="block" aria-hidden="false">
-        <img class="badges" src="https://i.imgur.com/OuIiUI0.png" alt="quality badges and certifications" loading="lazy" decoding="async" width="760" height="140">
+        <!-- certification image (not stretched) -->
+        <div class="badges">
+          <img src="https://i.imgur.com/OuIiUI0.png" alt="certifications" loading="lazy">
+        </div>
+
+        <p style="margin-top:18px;font-size:.9rem;color:var(--muted)"><small>Secure checkout on the official website. Always read labels and consult your healthcare provider before use.</small></p>
       </div>
 
     </section>
   </main>
 
-  <script>
-    (function(){
-      var btn=document.getElementById('buyBtn');
-      if(!btn) return;
-      btn.addEventListener('click',function(e){
-        var href=btn.getAttribute('href');
-        if(!href) return;
-        e.preventDefault();
-        try{window.open(href,'_blank','noopener');}catch(err){location.href=href}
-        // simple tracking ping
-        var img=new Image(); img.src=(href.indexOf('?')>-1?href+'&':'')+'utm_source=presell&utm_medium=button';
-      },{passive:true});
-    })();
-  </script>
 </body>
 </html>
