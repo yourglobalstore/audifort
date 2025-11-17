@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Audifort — Ear Support Supplement</title>
+  <meta name="description" content="Audifort — ear support supplement designed to promote ear health and comfort. Limited-time offer." />
+
+  <style>
+    :root{--accent:#2b6cb0;--bg:#ffffff;--muted:#6b7280;--max-width:1100px}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.4;color:#111;background:var(--bg);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:var(--max-width);margin:36px auto;padding:18px}
+
+    /* Card */
+    .card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px}
+    .media{flex:0 0 100%;display:flex;align-items:center;justify-content:center}
+    .product{max-width:420px;width:100%;height:auto;display:block;border-radius:12px}
+
+    .content{width:100%}
+    h1{font-size:1.5rem;margin:8px 0}
+    p.lead{color:var(--muted);margin:6px 0 16px}
+
+    /* CTA */
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(43,108,176,.18);}
+    .cta-block{display:block;width:100%;text-align:center}
+
+    /* Features & badges */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:18px}
+    .feat{padding:10px;border-radius:10px;background:#f8fafc;border:1px solid #eef2f7}
+    small{color:var(--muted)}
+
+    .badges{margin-top:20px;max-width:760px;width:100%}
+    .badges img{width:100%;height:auto;display:block;border-radius:8px}
+
+    footer note{display:block;margin-top:14px;color:var(--muted);font-size:.92rem}
+
+    /* Responsive: on wider screens show side-by-side */
+    @media(min-width:900px){
+      .card{flex-direction:row;align-items:flex-start;text-align:left}
+      .media{flex:0 0 420px}
+      .content{flex:1;padding-left:24px}
+      h1{font-size:1.75rem}
+    }
+
+    /* Mobile-friendly tweaks */
+    @media(max-width:420px){
+      .wrap{margin:16px 12px;padding:12px}
+      .cta{padding:14px;border-radius:12px}
+      .product{max-width:320px}
+    }
+  </style>
+
+</head>
+<body>
+  <main class="wrap" role="main">
+    <section class="card" aria-labelledby="product-title">
+
+      <div class="media" aria-hidden="false">
+        <!-- Responsive image using srcset and sizes -->
+        <picture>
+          <!-- If you later provide WebP versions, replace srcset entries with webp files -->
+          <source srcset="https://i.imgur.com/2itDmPc.png 480w, https://i.imgur.com/2itDmPc.png 768w, https://i.imgur.com/2itDmPc.png 1024w" sizes="(max-width:900px) 80vw, 420px">
+          <img class="product" src="https://i.imgur.com/2itDmPc.png" alt="Audifort bottle" loading="lazy" decoding="async" width="420" height="420">
+        </picture>
+      </div>
+
+      <div class="content">
+        <h1 id="product-title">Audifort — Advanced Ear Support Formula</h1>
+        <p class="lead">Supports ear comfort and healthy auditory function. Scientifically-formulated blend to support ear health and overall well-being.</p>
+
+        <div style="margin-top:6px">
+          <a id="buyBtn" class="cta cta-block" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener sponsored" aria-label="Buy Audifort from official website">Buy From Official Website</a>
+        </div>
+
+        <div class="features" aria-hidden="false">
+          <div class="feat"><strong>GMP Certified</strong><br><small>Manufacturing quality</small></div>
+          <div class="feat"><strong>Made in USA</strong><br><small>Registered facility</small></div>
+          <div class="feat"><strong>Natural Ingredients</strong><br><small>No unnecessary fillers</small></div>
+          <div class="feat"><strong>GMO Free</strong><br><small>Purity guaranteed</small></div>
+        </div>
+
+        <div class="badges" style="margin-top:18px">
+          <img src="https://i.imgur.com/m6ovMbm.png" alt="quality badges and certifications" loading="lazy" decoding="async" width="760" height="120">
+        </div>
+
+        <p style="margin-top:16px;font-size:.92rem;color:var(--muted)"><small>Secure checkout on the official website. Always read labels and consult your healthcare provider before use.</small></p>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      var btn=document.getElementById('buyBtn');
+      if(!btn) return;
+      btn.addEventListener('click',function(e){
+        var href=btn.getAttribute('href');
+        if(!href) return;
+        e.preventDefault();
+        try{window.open(href,'_blank','noopener');}catch(err){location.href=href}
+        // simple tracking ping (no external analytics required)
+        var img=new Image(); img.src=(href.indexOf('?')>-1?href+'&':'')+'utm_source=presell&utm_medium=button';
+      },{passive:true});
+    })();
+  </script>
+
+</body>
+</html>
