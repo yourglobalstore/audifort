@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="https://i.imgur.com/vHUeSn0.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Audifort — Ear Support Supplement</title>
@@ -25,7 +26,7 @@
 
     /* Layout: 3 vertical blocks (stack on mobile, 3 columns on wide) */
     .card{width:100%}
-    .three-col{display:grid;grid-template-columns:1fr;gap:20px;align-items:start}
+    .three-col{display:grid;grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:20px;align-items:start}
 
     .col{background:transparent}
 
@@ -38,7 +39,10 @@
     .title{font-size:1.5rem;margin:8px 0;text-align:center}
     .lead{color:var(--muted);margin:6px 0 16px;text-align:center}
 
-    .cta{display:inline-block;background:var(--accent);color:#fff;padding:14px 20px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(43,108,176,.18);border:0;cursor:pointer}
+    .cta{display:inline-flex;align-items:center;gap:12px;background:var(--accent);color:#fff;padding:14px 20px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(43,108,176,.18);border:0;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+    .cta:focus{outline:3px solid rgba(43,108,176,.18);outline-offset:3px}
+    .cta-icon{width:20px;height:20px;display:block;flex:0 0 20px;border-radius:4px}
+    .cta:hover,.cta:focus-visible{transform:translateY(-4px);box-shadow:0 14px 30px rgba(43,108,176,.22);filter:brightness(1.03)}
     .cta:focus{outline:3px solid rgba(43,108,176,.18);outline-offset:3px}
 
     .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:12px;width:100%}
@@ -53,8 +57,12 @@
     footer note{display:block;margin-top:14px;color:var(--muted);font-size:.92rem}
 
     /* Desktop: show three vertical blocks (columns) */
+    /* Desktop: keep blocks horizontal (stacked rows), not columns */
     @media(min-width:900px){
-      .three-col{grid-template-columns:420px 1fr 360px}
+      .three-col{grid-template-columns:1fr}
+      .title,.lead{text-align:center}
+      .cta-wrap{align-items:center;padding-left:0}
+    }
       .title,.lead{text-align:left}
       .cta-wrap{align-items:flex-start;padding-left:12px}
     }
@@ -94,7 +102,7 @@
 
           <!-- Primary CTA: keep anchor but improve attributes for accessibility and security -->
           <div style="width:100%">
-            <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener noreferrer sponsored" target="_blank" aria-label="Buy Audifort from official website">Buy From Official Website</a>
+            <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener noreferrer sponsored" target="_blank" aria-label="Buy Audifort from official website"><img src="https://i.imgur.com/vHUeSn0.png" alt="" aria-hidden="true" class="cta-icon">Buy From Official Website</a>
             <noscript><p style="margin-top:8px;color:var(--muted);font-size:.92rem">JavaScript is disabled — click the button above to open the checkout.</p></noscript>
           </div>
 
@@ -111,7 +119,7 @@
 
         <!-- 3) Badges / certifications column -->
         <div class="col badges" aria-hidden="false">
-          <img src="https://i.imgur.com/qr4nMPv.png" alt="quality badges and certifications" loading="lazy" decoding="async" width="760" height="120">
+          <img src="https://i.imgur.com/m6ovMbm.png" alt="quality badges and certifications" loading="lazy" decoding="async" width="760" height="120">
         </div>
 
       </div>
