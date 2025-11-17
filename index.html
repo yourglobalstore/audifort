@@ -58,78 +58,55 @@
   <main class="wrap" role="main">
     <section class="stacked" aria-labelledby="product-title" style="display:flex;flex-direction:column;gap:30px;text-align:center;">
 
-  <!-- Row 1: product image + title + description -->
+  <!-- Row 1: product image + title + description (unchanged) -->
   <div class="row1">
     <img class="product" src="https://i.imgur.com/2itDmPc.png" alt="Audifort bottle" loading="lazy" decoding="async" style="max-width:360px;width:100%;height:auto;margin:0 auto;border-radius:12px;">
     <h1 id="product-title">Audifort — Advanced Ear Support Formula</h1>
     <p class="lead">Supports ear comfort and healthy auditory function. Scientifically-formulated blend to support ear health and overall well-being.</p>
   </div>
 
-  <!-- Row 2: CTA button -->
+  <!-- Row 2: CTA button (unchanged) -->
   <div class="row2" style="display:flex;justify-content:center;">
     <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener sponsored" aria-label="Buy Audifort from official website" style="display:inline-flex;align-items:center;gap:10px;background:#2b6cb0;color:#fff;padding:16px 26px;border-radius:12px;font-weight:700;text-decoration:none;box-shadow:0 10px 22px rgba(43,108,176,.18);transition:all .2s ease;">
       🛒 <span>Buy From Official Website</span>
     </a>
   </div>
 
-  <!-- Row 3: GMP + Made in USA -->
-  <div class="row3" style="display:flex;flex-direction:column;gap:14px;align-items:center;">
-    <div class="feat" style="background:#f8fafc;border:1px solid #eef2f7;border-radius:10px;padding:12px;min-width:200px;">
-      <strong>GMP Certified</strong><br><small>Manufacturing quality</small>
-    </div>
+  <!-- Row 3: GMP + Made in USA (stacked boxes) -->
+  <div class="row3" style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;">
+  <div style="background:#fff;border:1px solid #eef2f7;padding:10px 16px;border-radius:8px;min-width:140px;text-align:center;">GMP Certified</div>
+  <div style="background:#fff;border:1px solid #eef2f7;padding:10px 16px;border-radius:8px;min-width:140px;text-align:center;">Natural Ingredients</div>
+  <div style="background:#fff;border:1px solid #eef2f7;padding:10px 16px;border-radius:8px;min-width:140px;text-align:center;">GMO Free</div>
+  <div style="background:#fff;border:1px solid:#eef2f7;padding:10px 16px;border-radius:8px;min-width:140px;text-align:center;">Made in USA</div>
+</div>
     <div class="feat" style="background:#f8fafc;border:1px solid #eef2f7;border-radius:10px;padding:12px;min-width:200px;">
       <strong>Made in USA</strong><br><small>Registered facility</small>
     </div>
-  </div>
 
-  <!-- Row 4: Certifications image + extra texts -->
-  <div class="row4" style="display:flex;flex-direction:column;align-items:center;gap:22px;">
-
-  <!-- Four horizontal blocks: GMP | Natural Ingredients | GMO Free | Made in USA -->
-  <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-
-    <div style="background:#f8fafc;border:1px solid #eef2f7;padding:12px 18px;border-radius:10px;min-width:150px;text-align:center;font-weight:600;">
-      GMP Certified
-    </div>
-
-    <div style="background:#f8fafc;border:1px solid #eef2f7;padding:12px 18px;border-radius:10px;min-width:150px;text-align:center;font-weight:600;">
-      Natural Ingredients
-    </div>
-
-    <div style="background:#f8fafc;border:1px solid #eef2f7;padding:12px 18px;border-radius:10px;min-width:150px;text-align:center;font-weight:600;">
-      GMO Free
-    </div>
-
-    <div style="background:#f8fafc;border:1px solid #eef2f7;padding:12px 18px;border-radius:10px;min-width:150px;text-align:center;font-weight:600;">
-      Made in USA
+    <!-- small horizontal boxes centered under the stacked features -->
+    <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:6px;">
+      <div style="background:#fff;border:1px solid #eef2f7;padding:10px 16px;border-radius:8px;min-width:140px;text-align:center;">GMP Certified</div>
+      <div style="background:#fff;border:1px solid #eef2f7;padding:10px 16px;border-radius:8px;min-width:140px;text-align:center;">Natural Ingredients</div>
+      <div style="background:#fff;border:1px solid #eef2f7;padding:10px 16px;border-radius:8px;min-width:140px;text-align:center;">GMO Free</div>
+      <div style="background:#fff;border:1px solid #eef2f7;padding:10px 16px;border-radius:8px;min-width:140px;text-align:center;">Made in USA</div>
     </div>
 
   </div>
 
-  <div style="color:#6b7280;font-size:.95rem;max-width:420px;text-align:center;">
-    Secure checkout on the official website.<br>
-    Always read labels and consult your healthcare provider before use.
-  </div>
+  <!-- Row 4: certifications image + notice + vertical feature stack -->
+  <div class="row4" style="display:flex;flex-direction:column;align-items:center;gap:18px;">
 
+    <!-- certification icons image centered -->
+<div style="display:flex;justify-content:center;align-items:center;">
+  <img src="https://i.imgur.com/OuIiUI0.png" alt="certifications" loading="lazy" style="max-width:360px;width:100%;height:auto;border-radius:10px;">
 </div>
 
-  <div style="color:#6b7280;font-size:.95rem;max-width:420px;text-align:center;">
-    Secure checkout on the official website.<br>
-    Always read labels and consult your healthcare provider before use.
-  </div>
-
-  <div style="color:#444;text-align:center;font-size:1rem;">
-    <strong>Natural Ingredients</strong><br>No unnecessary fillers
-    <br><br>
-    <strong>GMO Free</strong><br>Purity guaranteed
-  </div>
-
+<!-- notice centered under icons -->
+<div style="color:#6b7280;font-size:.95rem;max-width:720px;text-align:center;">
+  Secure checkout on the official website.<br>
+  Always read labels and consult your healthcare provider before use.
 </div>
-    <div style="color:#444;text-align:center;font-size:1rem;">
-      <strong>Natural Ingredients</strong><br>No unnecessary fillers
-      <br><br>
-      <strong>GMO Free</strong><br>Purity guaranteed
-    </div>
+
   </div>
 
 </section>
