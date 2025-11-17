@@ -56,45 +56,47 @@
 </head>
 <body>
   <main class="wrap" role="main">
-    <section class="grid" aria-labelledby="product-title">
+    <section class="stacked" aria-labelledby="product-title" style="display:flex;flex-direction:column;gap:30px;text-align:center;">
 
-      <!-- Column 1: product image + title + description -->
-      <div class="col" id="col-1">
-        <img class="product" src="https://i.imgur.com/2itDmPc.png" alt="Audifort bottle" loading="lazy" decoding="async" width="360" height="360">
-        <h1 id="product-title">Audifort — Advanced Ear Support Formula</h1>
-        <p class="lead">Supports ear comfort and healthy auditory function. Scientifically-formulated blend to support ear health and overall well-being.</p>
-      </div>
+  <!-- Row 1: product image + title + description -->
+  <div class="row1">
+    <img class="product" src="https://i.imgur.com/2itDmPc.png" alt="Audifort bottle" loading="lazy" decoding="async" style="max-width:360px;width:100%;height:auto;margin:0 auto;border-radius:12px;">
+    <h1 id="product-title">Audifort — Advanced Ear Support Formula</h1>
+    <p class="lead">Supports ear comfort and healthy auditory function. Scientifically-formulated blend to support ear health and overall well-being.</p>
+  </div>
 
-      <!-- Column 2: CTA -->
-      <div class="col" id="col-2" style="display:flex;align-items:center;justify-content:center">
-        <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener sponsored" aria-label="Buy Audifort from official website">
-          <!-- cart SVG icon inside button -->
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M7 4h-2l-1 2H1v2h2l3.6 7.59-1.35 2.45C4.89 18.37 5.48 20 7 20h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 16h7.45c.75 0 1.41-.41 1.75-1.03L21.92 7H6.21l-.94-3zM7 22a2 2 0 100-4 2 2 0 000 4zm10 0a2 2 0 100-4 2 2 0 000 4z"/></svg>
-          <span>Buy From Official Website</span>
-        </a>
-      </div>
+  <!-- Row 2: CTA button -->
+  <div class="row2" style="display:flex;justify-content:center;">
+    <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener sponsored" aria-label="Buy Audifort from official website" style="display:inline-flex;align-items:center;gap:10px;background:#2b6cb0;color:#fff;padding:16px 26px;border-radius:12px;font-weight:700;text-decoration:none;box-shadow:0 10px 22px rgba(43,108,176,.18);transition:all .2s ease;">
+      🛒 <span>Buy From Official Website</span>
+    </a>
+  </div>
 
-      <!-- Column 3: features (GMP Certified & Made in USA) -->
-      <div class="col" id="col-3">
-        <div class="features-col">
-          <div class="feat"><strong>GMP Certified</strong><small><br>Manufacturing quality</small></div>
-          <div class="feat"><strong>Made in USA</strong><small><br>Registered facility</small></div>
-        </div>
-      </div>
+  <!-- Row 3: GMP + Made in USA -->
+  <div class="row3" style="display:flex;flex-direction:column;gap:14px;align-items:center;">
+    <div class="feat" style="background:#f8fafc;border:1px solid #eef2f7;border-radius:10px;padding:12px;min-width:200px;">
+      <strong>GMP Certified</strong><br><small>Manufacturing quality</small>
+    </div>
+    <div class="feat" style="background:#f8fafc;border:1px solid #eef2f7;border-radius:10px;padding:12px;min-width:200px;">
+      <strong>Made in USA</strong><br><small>Registered facility</small>
+    </div>
+  </div>
 
-      <!-- Column 4: certifications image + notice + remaining features -->
-      <div class="col" id="col-4">
-        <div class="badges">
-          <img src="https://i.imgur.com/OuIiUI0.png" alt="quality badges and certifications" loading="lazy" decoding="async" width="320" height="140">
-        </div>
-        <div class="notice">Secure checkout on the official website. Always read labels and consult your healthcare provider before use.</div>
-        <div class="extra-list">
-          <div><strong>Natural Ingredients</strong><br>No unnecessary fillers</div>
-          <div style="margin-top:8px"><strong>GMO Free</strong><br>Purity guaranteed</div>
-        </div>
-      </div>
+  <!-- Row 4: Certifications image + extra texts -->
+  <div class="row4" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+    <img src="https://i.imgur.com/OuIiUI0.png" alt="certifications" loading="lazy" style="max-width:360px;width:100%;height:auto;border-radius:10px;">
+    <div style="color:#6b7280;font-size:.95rem;max-width:420px;">
+      Secure checkout on the official website.<br>
+      Always read labels and consult your healthcare provider before use.
+    </div>
+    <div style="color:#444;text-align:center;font-size:1rem;">
+      <strong>Natural Ingredients</strong><br>No unnecessary fillers
+      <br><br>
+      <strong>GMO Free</strong><br>Purity guaranteed
+    </div>
+  </div>
 
-    </section>
+</section>
   </main>
 
   <script>
