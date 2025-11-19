@@ -21,14 +21,29 @@
     .col{padding:12px}
 
     /* Column 1: product image + title + description */
-    .product{max-width:360px;width:100%;height:auto;border-radius:12px;display:block;margin:0 auto}
+    .product{max-width:360px;width:100%;height:auto;border-radius:12px;display:block;margin:0 auto;aspect-ratio:1/1;object-fit:cover}
     h1{font-size:1.5rem;margin:10px 0;text-align:center}
     p.lead{color:var(--muted);font-size:1rem;max-width:720px;margin:0 auto;text-align:center}
 
     /* Column 2: CTA */
-    .cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:14px 20px;border-radius:12px;font-weight:700;text-decoration:none;box-shadow:0 8px 20px rgba(43,108,176,.16);transition:transform .18s ease,box-shadow .18s ease}
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--accent);
+      color:#fff;
+      padding:14px 20px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 8px 20px rgba(43,108,176,.16);
+      transition:transform .18s ease,box-shadow .18s ease,filter .12s ease;
+      min-height:52px;            /* prevents layout shift */
+      justify-content:center;
+    }
     .cta:hover,.cta:focus{transform:translateY(-4px) scale(1.02);box-shadow:0 18px 36px rgba(43,108,176,.22)}
-    .cta svg{width:20px;height:20px}
+    .cta svg{width:20px;height:20px;flex:0 0 20px;display:block}
+    .cta span{display:inline-block}
 
     /* Column 3: first two features aligned vertically */
     .features-col{display:flex;flex-direction:column;gap:12px;align-items:center}
@@ -36,7 +51,7 @@
     .feat strong{display:block}
 
     /* Column 4: certifications image + notice + remaining feature lines */
-    .badges img{max-width:320px;width:100%;height:auto;border-radius:10px;display:block;margin:0 auto}
+    .badges img{max-width:320px;width:100%;height:auto;border-radius:10px;display:block;margin:0 auto;aspect-ratio:760/120;object-fit:contain}
     .notice{margin-top:12px;color:var(--muted);font-size:.92rem;text-align:center}
     .extra-list{margin-top:10px;text-align:center;color:var(--muted)}
 
@@ -65,10 +80,14 @@
     <p class="lead">Supports ear comfort and healthy auditory function. Scientifically-formulated blend to support ear health and overall well-being.</p>
   </div>
 
-  <!-- Row 2: CTA button (unchanged) -->
+  <!-- Row 2: CTA button (adjusted: inline SVG icon with fixed size, min-height on CTA) -->
   <div class="row2" style="display:flex;justify-content:center;">
-    <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener sponsored" aria-label="Buy Audifort from official website" style="display:inline-flex;align-items:center;gap:10px;background:#2b6cb0;color:#fff;padding:16px 26px;border-radius:12px;font-weight:700;text-decoration:none;box-shadow:0 10px 22px rgba(43,108,176,.18);transition:all .2s ease;">
-      🛒 <span>Buy From Official Website</span>
+    <a id="buyBtn" class="cta" href="https://audifort.com/d/order-now.php#aff=Rafael-Jesus" rel="noopener noreferrer sponsored" target="_blank" aria-label="Buy Audifort from official website">
+      <!-- inline SVG icon (fixed size) to avoid layout shift -->
+      <svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#ffffff" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 14l.84-2h7.45c.75 0 1.39-.46 1.64-1.12l1.8-4.6A1 1 0 0 0 18.9 4H5.21L4.27 2H1v2h2l3.6 7.59-1.35 2.45C5.07 15.37 5 15.66 5 16c0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.26-.24L7.16 14z"/>
+      </svg>
+      <span>Buy From Official Website</span>
     </a>
   </div>
 
@@ -76,14 +95,14 @@
   <div class="row4" style="display:flex;flex-direction:column;align-items:center;gap:18px;">
 
     <!-- certification icons image centered -->
-<div style="display:flex;justify-content:center;align-items:center;">
-  <img src="https://i.imgur.com/OuIiUI0.png" alt="certifications" loading="lazy" style="max-width:360px;width:100%;height:auto;border-radius:10px;">
-</div>
+    <div style="display:flex;justify-content:center;align-items:center;">
+      <img src="https://i.imgur.com/OuIiUI0.png" alt="certifications" loading="lazy" style="max-width:360px;width:100%;height:auto;border-radius:10px;">
+    </div>
 
-<div style="color:#6b7280;font-size:.75rem;max-width:720px;text-align:center;margin-top:20px;">
-Secure checkout on the official website.<br>
-  Always read labels and consult your healthcare provider before use.
-</div>
+    <div style="color:#6b7280;font-size:.75rem;max-width:720px;text-align:center;margin-top:20px;">
+      Secure checkout on the official website.<br>
+      Always read labels and consult your healthcare provider before use.
+    </div>
 
   </div>
 
@@ -99,12 +118,13 @@ Secure checkout on the official website.<br>
         if(!href) return;
         e.preventDefault();
         try{window.open(href,'_blank','noopener');}catch(err){location.href=href}
-        var img=new Image(); img.src=(href.indexOf('?')>-1?href+'&':'')+'utm_source=presell&utm_medium=button';
+        // tracking ping (use sendBeacon when available)
+        try{
+          var ping = (href.indexOf('?')>-1?href+'&':href+'?') + 'utm_source=presell&utm_medium=button';
+          if(navigator.sendBeacon){ navigator.sendBeacon(ping); } else { var img=new Image(); img.src=ping; }
+        }catch(err){}
       },{passive:true});
     })();
   </script>
 </body>
 </html>
-
-
-
